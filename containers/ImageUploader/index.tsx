@@ -26,10 +26,8 @@ function ImageUploader() {
       return <ResultScreen imageURL={imageURL} />;
 
     case 'rejected':
-      return <ErrorScreen error={error} />;
-
     default:
-      return <div>something went wrong . . . </div>;
+      return <ErrorScreen error={error} />;
   }
 }
 
