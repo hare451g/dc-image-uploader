@@ -21,3 +21,9 @@
   background-color: #d2d3d4;
   transition: 1s;
 }
+
+.dropzone.inside {
+  border: #435979;
+  background-color: #d2d3d4;
+  transition: 1s;
+}
