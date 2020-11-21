@@ -1,4 +1,5 @@
 import Dropzone from './components/Dropzone';
+import FileInput from './components/FileInput';
 import styles from './index.module.css';
 
 type PropTypes = {};
@@ -15,7 +16,7 @@ function ImageUploader(props: PropTypes) {
       <Dropzone onStoreFile={onStoreFile} />
       <div className={styles.footer}>
         <p> Or </p>
-        <div className={styles['fileinput_container']} />
+        <FileInput onStoreFile={onStoreFile} />
       </div>
     </div>
   );
