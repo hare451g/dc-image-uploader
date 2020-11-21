@@ -19,3 +19,15 @@
   align-items: center;
   justify-content: center;
 }
+
+.error-messages {
+  border-radius: 12px;
+  padding: 8px 16px;
+  background-color: #ffbfbf;
+  border: 1px solid #da8989;
+  text-align: c;
+
+  width: 400px;
+
+  transition: 500ms;
+}
