@@ -1,4 +1,6 @@
 import Formidable from 'formidable';
+import fs from 'fs';
+
 import {
   NextApiHandler,
   NextApiRequest,
@@ -15,9 +17,14 @@ export const config: PageConfig = {
 
 const handler: NextApiHandler = (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
-    const form = new Formidable.IncomingForm();
+    const uploadDir = './public/uploads/';
 
-    form.uploadDir = './public/uploads/';
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir);
+    }
+
+    const form = new Formidable.IncomingForm();
+    form.uploadDir = uploadDir;
     form.multiples = false;
     form.keepExtensions = true;
 
