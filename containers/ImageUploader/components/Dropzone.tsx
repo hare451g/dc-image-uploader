@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './Dropzone.module.css';
 
 type propTypes = {
-  onStoreFile: (file: File) => void;
+  onFileChange: (file: File) => void;
 };
 
 type stateType = {
@@ -12,7 +12,7 @@ type stateType = {
 
 type dragEventHandlerType = (e: React.DragEvent<HTMLLabelElement>) => void;
 
-function Dropzone({ onStoreFile }: propTypes) {
+function Dropzone({ onFileChange }: propTypes) {
   /** States definitions */
   const [state, setState] = useState<stateType>({
     status: 'idle',
@@ -66,7 +66,7 @@ function Dropzone({ onStoreFile }: propTypes) {
     e.preventDefault();
     e.stopPropagation();
 
-    onStoreFile(e.dataTransfer.files[0]);
+    onFileChange(e.dataTransfer.files[0]);
 
     setState({
       status: 'outside',

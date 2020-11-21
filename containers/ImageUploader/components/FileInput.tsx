@@ -1,12 +1,12 @@
 import styles from './FileInput.module.css';
 
 type propTypes = {
-  onStoreFile: (file: File) => void;
+  onFileChange: (file: File) => void;
 };
 
-function FileInput({ onStoreFile, ...rest }: propTypes) {
-  const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onStoreFile(e.target.files[0]);
+function FileInput({ onFileChange, ...rest }: propTypes) {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onFileChange(e.target.files[0]);
   };
 
   return (
@@ -15,7 +15,7 @@ function FileInput({ onStoreFile, ...rest }: propTypes) {
         className={styles['original-input']}
         id="file-input"
         type="file"
-        onChange={onFileChange}
+        onChange={handleFileChange}
         {...rest}
       />
       Choose a file

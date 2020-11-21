@@ -7,7 +7,9 @@ import FileInput from './FileInput';
 /** Styles */
 import styles from './UploadScreen.module.css';
 
-type PropTypes = {};
+type PropTypes = {
+  onStoreFile: (fileInput: File) => void;
+};
 
 const MAX_FILE_SIZE = 1000 * 100 * 5; // 500kb
 
@@ -17,12 +19,12 @@ const VALID_IMG_FORMATS = [
   'image/jpg',
   'image/png',
   'image/svg',
+  'image/svg+xml',
   'image/webp',
 ];
 
-function UploadScreen(props: PropTypes) {
+function UploadScreen({ onStoreFile }: PropTypes) {
   /** State definitions */
-  const [file, setFile] = useState<File>(null);
   const [error, setError] = useState<string>(null);
 
   /** Event handlers */
@@ -30,13 +32,13 @@ function UploadScreen(props: PropTypes) {
     setError(null);
   };
 
-  const onStoreFile = (file: File) => {
+  const handleFileChange = (file: File) => {
     handleDismissError();
 
     if (VALID_IMG_FORMATS.indexOf(file.type) < 0) {
       setError(
-        'Invalid file format' +
-          'please make sure your image is one of these types' +
+        `Invalid file format ${file.type} ` +
+          +'please make sure your image is one of these types' +
           VALID_IMG_FORMATS.join(', ')
       );
       return;
@@ -50,7 +52,7 @@ function UploadScreen(props: PropTypes) {
       return;
     }
 
-    setFile(file);
+    onStoreFile(file);
   };
 
   /** Render component */
@@ -60,10 +62,10 @@ function UploadScreen(props: PropTypes) {
       <p className={styles.subtitle}>
         File should be image png / jpg / jpeg ...
       </p>
-      <Dropzone onStoreFile={onStoreFile} />
+      <Dropzone onFileChange={handleFileChange} />
       <div className={styles.footer}>
         <p> Or </p>
-        <FileInput onStoreFile={onStoreFile} />
+        <FileInput onFileChange={handleFileChange} />
       </div>
       {error && (
         <p className={styles['error-messages']} onClick={handleDismissError}>
