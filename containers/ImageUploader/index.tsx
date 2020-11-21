@@ -1,25 +1,19 @@
-import Dropzone from './components/Dropzone';
-import FileInput from './components/FileInput';
-import styles from './index.module.css';
+import { useState } from 'react';
+import UploadScreen from './components/UploadScreen';
 
 type PropTypes = {};
 
 function ImageUploader(props: PropTypes) {
-  const onStoreFile = () => {};
+  // states
+  const [status, setStatus] = useState<string>('idle');
 
-  return (
-    <div>
-      <h1 className={styles.title}>Upload your image</h1>
-      <p className={styles.subtitle}>
-        File should be image png / jpg / jpeg ...
-      </p>
-      <Dropzone onStoreFile={onStoreFile} />
-      <div className={styles.footer}>
-        <p> Or </p>
-        <FileInput onStoreFile={onStoreFile} />
-      </div>
-    </div>
-  );
+  switch (status) {
+    case 'idle':
+      return <UploadScreen />;
+
+    default:
+      return <div>something went wrong . . . </div>;
+  }
 }
 
 export default ImageUploader;
