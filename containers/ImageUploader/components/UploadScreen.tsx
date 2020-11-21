@@ -8,7 +8,7 @@ function UploadScreen(props: PropTypes) {
   const onStoreFile = () => {};
 
   return (
-    <div>
+    <>
       <h1 className={styles.title}>Upload your image</h1>
       <p className={styles.subtitle}>
         File should be image png / jpg / jpeg ...
@@ -18,7 +18,7 @@ function UploadScreen(props: PropTypes) {
         <p> Or </p>
         <FileInput onStoreFile={onStoreFile} />
       </div>
-    </div>
+    </>
   );
 }
 
