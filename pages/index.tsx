@@ -10,8 +10,9 @@ export default function Home() {
         <title>Image Uploader</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Image Upload</h1>
-      <ImageUploader />
+      <div className={styles.card}>
+        <ImageUploader />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,19 @@
+.title {
+  font-weight: 500;
+  size: 24px;
+  color: #4f4f4f;
+  letter-spacing: -0.035em;
+}
+
+.subtitle {
+  font-weight: 500;
+  size: 14px;
+  color: #828282;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
