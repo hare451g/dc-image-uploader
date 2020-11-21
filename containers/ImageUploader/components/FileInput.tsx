@@ -7,7 +7,7 @@ type propTypes = {
 
 function FileInput({ file, onStoreFile, ...rest }: propTypes) {
   return (
-    <label className={styles['file-input']} htmlFor="file-input">
+    <label className="file-input" htmlFor="file-input">
       <input
         className={styles['original-input']}
         id="file-input"

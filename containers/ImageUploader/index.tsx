@@ -1,16 +1,20 @@
 import { useState } from 'react';
+
+// Feature Components
+import ErrorScreen from './components/ErrorScreen';
 import ProgressScreen from './components/ProgressScreen';
 import ResultScreen from './components/ResultScreen';
 import UploadScreen from './components/UploadScreen';
 
-type PropTypes = {};
-
-function ImageUploader(props: PropTypes) {
-  // states
+// feature definition
+function ImageUploader() {
+  // states definitions
   const [status, setStatus] = useState<string>('idle');
   const [progress, setProgress] = useState<number>(0);
   const [imageURL, setImageURL] = useState<string>(null);
+  const [error, setError] = useState<Error>(undefined);
 
+  // Feature screen routing
   switch (status) {
     case 'idle':
       return <UploadScreen />;
@@ -22,7 +26,7 @@ function ImageUploader(props: PropTypes) {
       return <ResultScreen imageURL={imageURL} />;
 
     case 'rejected':
-      return <div>error</div>;
+      return <ErrorScreen error={error} />;
 
     default:
       return <div>something went wrong . . . </div>;

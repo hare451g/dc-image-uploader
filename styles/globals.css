@@ -21,3 +21,26 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.file-input,
+button {
+  font-family: inherit;
+  font-weight: inherit;
+  background: #2f80ed;
+  border: none;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.file-input:focus,
+button:focus {
+  outline: none;
+}
+.file-input:hover,
+button:hover {
+  background: #225ca8;
+  transition: 1s;
+}
