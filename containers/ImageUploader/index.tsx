@@ -49,6 +49,10 @@ function ImageUploader() {
     setFile(fileInput);
   };
 
+  const handleRetry = () => {
+    setRequestState({ ...initialRequestState });
+  };
+
   const onUploadProgress = ({ loaded, total }: ProgressEvent) => {
     const current = Math.round(loaded * 100) / total;
     if (current >= 100) {
@@ -105,7 +109,7 @@ function ImageUploader() {
 
     case 'rejected':
     default:
-      return <ErrorScreen error={requestState.error} />;
+      return <ErrorScreen error={requestState.error} onRetry={handleRetry} />;
   }
 }
 

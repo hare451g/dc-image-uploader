@@ -2,9 +2,10 @@ import styles from './ErrorScreen.module.css';
 
 type PropTypes = {
   error: Error;
+  onRetry: () => void;
 };
 
-function ErrorScreen({ error }: PropTypes) {
+function ErrorScreen({ error, onRetry }: PropTypes) {
   return (
     <>
       <img alt="error icon" height="42px" src="/error.svg" />
@@ -13,7 +14,9 @@ function ErrorScreen({ error }: PropTypes) {
       <div className={styles['log-container']}>
         <p className={styles.log}>{error}</p>
       </div>
-      <button className={styles['btn-retry']}>Retry</button>
+      <button className={styles['btn-retry']} onClick={onRetry}>
+        Retry
+      </button>
     </>
   );
 }
