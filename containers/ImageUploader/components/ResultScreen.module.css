@@ -61,6 +61,12 @@
   white-space: nowrap;
 
   width: 75%;
+
+  border: none;
+  background-color: transparent;
+
+  font-family: 'Poppins';
+  color: #4f4f4f;
 }
 
 .btn-copy-link {
@@ -68,7 +74,5 @@
   border: none;
   border-radius: 8px;
   color: #ffffff;
-  padding: 8px 16px;
   white-space: nowrap;
-  width: 25%;
 }

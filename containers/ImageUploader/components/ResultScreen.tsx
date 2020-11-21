@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import styles from './ResultScreen.module.css';
 
 type PropTypes = {
@@ -5,7 +6,15 @@ type PropTypes = {
 };
 
 function ResultScreen({ imageURL }: PropTypes) {
-  const handleCopyLinkClick = () => {};
+  /** Ref */
+  const inputRef = useRef(null);
+
+  const handleCopyLinkClick = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    inputRef.current.select();
+    document.execCommand('copy');
+  };
 
   return (
     <div className={styles.container}>
@@ -20,7 +29,11 @@ function ResultScreen({ imageURL }: PropTypes) {
       </div>
 
       <div className={styles['image-url-container']}>
-        <span className={styles['text-image-url']}>{imageURL}</span>
+        <input
+          className={styles['text-image-url']}
+          value={imageURL}
+          ref={inputRef}
+        />
         <button
           className={styles['btn-copy-link']}
           onClick={handleCopyLinkClick}
