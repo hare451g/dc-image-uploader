@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import ImageUploader from '../containers/ImageUploader';
 
 import styles from '../styles/Home.module.css';
 
@@ -9,7 +10,9 @@ export default function Home() {
         <title>Image Uploader</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Image Upload</h1>
+      <div className={styles.card}>
+        <ImageUploader />
+      </div>
     </div>
   );
 }

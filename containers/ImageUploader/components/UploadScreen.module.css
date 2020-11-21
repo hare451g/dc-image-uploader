@@ -1,0 +1,21 @@
+.title {
+  color: #4f4f4f;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  text-align: center;
+  size: 24px;
+}
+
+.subtitle {
+  color: #828282;
+  font-weight: 500;
+  size: 14px;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
