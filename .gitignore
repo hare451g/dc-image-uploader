@@ -34,4 +34,4 @@ yarn-error.log*
 .vercel
 
 # storage directory
-/public/uploads/
+/public/uploads/*
