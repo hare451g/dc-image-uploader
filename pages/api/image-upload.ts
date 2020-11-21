@@ -17,7 +17,7 @@ export const config: PageConfig = {
 
 const handler: NextApiHandler = (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
-    const uploadDir = 'public/uploads/';
+    const uploadDir = '/public/uploads/';
 
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir);
