@@ -11,13 +11,13 @@ type stateTypes = {
 };
 
 function Dropzone({ file, onStoreFile }: propTypes) {
-  const [status, setStatus] = useState<stateTypes['status']>();
+  const [status, setStatus] = useState<stateTypes['status']>('idle');
 
   return (
-    <div className={styles.dropzone}>
+    <label className={styles.dropzone} htmlFor="file-input">
       <img src="/image.svg" alt="image uploader background" />
       <p>Drag &amp; Drop your image here</p>
-    </div>
+    </label>
   );
 }
 
